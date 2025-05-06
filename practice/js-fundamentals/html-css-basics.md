@@ -1,636 +1,666 @@
 # HTML & CSS Basics Practice Exercises
 
 ## Exercise 1: Basic HTML Structure
-Create a simple webpage with the following structure:
-- A header with a title and navigation menu
-- A main content area with a heading and paragraph
-- A sidebar with a list of links
+Create a basic HTML structure for a todo list application. Include:
+- A header with a title
+- A form to add new todos
+- A list to display todos
 - A footer with copyright information
 
 ```html
 <!-- Your HTML code here -->
 ```
 
-## Exercise 2: Semantic HTML
-Convert the following HTML to use semantic elements:
-```html
-<div class="header">
-    <div class="nav">
-        <div class="nav-item">Home</div>
-        <div class="nav-item">About</div>
-        <div class="nav-item">Contact</div>
-    </div>
-</div>
-<div class="main">
-    <div class="content">
-        <div class="heading">Welcome</div>
-        <div class="text">This is a paragraph.</div>
-    </div>
-    <div class="sidebar">
-        <div class="links">
-            <div class="link">Link 1</div>
-            <div class="link">Link 2</div>
-        </div>
-    </div>
-</div>
-<div class="footer">
-    <div class="copyright">© 2024</div>
-</div>
-```
-
-## Exercise 3: CSS Selectors
-Write CSS selectors to style the following HTML:
-```html
-<div class="container">
-    <header id="main-header">
-        <h1>Title</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <article class="post">
-            <h2>Article Title</h2>
-            <p>Article content...</p>
-        </article>
-    </main>
-</div>
-```
-
-## Exercise 4: Box Model
-Create a card component using the box model properties:
-- Width: 300px
-- Height: 200px
-- Padding: 20px
-- Margin: 10px
-- Border: 1px solid gray
-- Border radius: 8px
-
-## Exercise 5: Flexbox Layout
-Create a responsive navigation bar using flexbox:
-- Logo on the left
-- Navigation links in the center
-- Login button on the right
-- Items should wrap on smaller screens
-
-## Exercise 6: CSS Units
-Create a responsive layout using different CSS units:
-- Font sizes using rem
-- Margins and padding using em
-- Container width using %
-- Viewport-based heights using vh
-- Grid columns using fr
-
-## Exercise 7: CSS Transitions
-Add transitions to the following elements:
-- Button hover effect
-- Image scale on hover
-- Color change on link hover
-- Smooth height change for an accordion
-
-## Exercise 8: Media Queries
-Create a responsive layout that:
-- Shows a sidebar on desktop
-- Hides sidebar on mobile
-- Changes font sizes based on screen width
-- Adjusts grid columns for different breakpoints
-
-## Exercise 9: CSS Grid
-Create a photo gallery using CSS Grid:
-- 3 columns on desktop
-- 2 columns on tablet
-- 1 column on mobile
-- Gap between items: 20px
-- Responsive image sizes
-
-## Exercise 10: Form Styling
-Style a contact form with:
-- Custom input styles
-- Focus states
-- Error states
-- Submit button styling
-- Responsive layout
-
-## Exercise 11: Challenge: Card Component
-Create a reusable card component that:
-- Has a header with title and icon
-- Contains main content area
-- Includes a footer with actions
-- Supports different variants (primary, secondary)
-- Is fully responsive
-
-## Exercise 12: Challenge: Navigation Menu
-Build a responsive navigation menu that:
-- Collapses to a hamburger menu on mobile
-- Has dropdown submenus
-- Includes active states
-- Supports keyboard navigation
-- Has smooth animations
-
-## Exercise 13: Challenge: Modal Dialog
-Create a modal dialog component that:
-- Centers content on screen
-- Has a semi-transparent backdrop
-- Closes on backdrop click
-- Supports keyboard navigation (Esc to close)
-- Has smooth enter/exit animations
-
-## Solutions
-
 <details>
-<summary>Click to see solutions</summary>
+<summary>Solution</summary>
 
-### Exercise 1: Basic HTML Structure
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Todo List</title>
 </head>
 <body>
     <header>
-        <h1>Website Title</h1>
+        <h1>My Todo List</h1>
+    </header>
+
+    <main>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Enter a new todo">
+            <button type="submit">Add Todo</button>
+        </form>
+
+        <ul id="todo-list">
+            <!-- Todos will be added here -->
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Todo List App</p>
+    </footer>
+</body>
+</html>
+```
+</details>
+
+## Exercise 2: CSS Styling
+Style the todo list application with CSS. Include:
+- A clean, modern layout
+- Responsive design
+- Hover effects
+- Visual feedback for interactions
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #todo-form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+```
+</details>
+
+## Exercise 3: Semantic HTML
+Create a semantic HTML structure for a blog post. Include:
+- Proper heading hierarchy
+- Article sections
+- Navigation
+- Sidebar
+- Comments section
+
+```html
+<!-- Your HTML code here -->
+```
+
+<details>
+<summary>Solution</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+</head>
+<body>
+    <header>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Welcome to Our Site</h2>
-        <p>This is the main content area of our website.</p>
+        <article>
+            <header>
+                <h1>Understanding HTML Semantics</h1>
+                <p class="meta">Posted by John Doe on March 15, 2024</p>
+            </header>
+
+            <section>
+                <h2>Introduction</h2>
+                <p>Semantic HTML is crucial for web accessibility and SEO...</p>
+            </section>
+
+            <section>
+                <h2>Key Benefits</h2>
+                <ul>
+                    <li>Improved accessibility</li>
+                    <li>Better SEO</li>
+                    <li>Easier maintenance</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>Using semantic HTML is a best practice...</p>
+            </section>
+
+            <section class="comments">
+                <h2>Comments</h2>
+                <article class="comment">
+                    <h3>Jane Smith</h3>
+                    <p>Great article! Very informative.</p>
+                </article>
+            </section>
+        </article>
+
+        <aside>
+            <h2>Related Posts</h2>
+            <ul>
+                <li><a href="#">CSS Best Practices</a></li>
+                <li><a href="#">JavaScript Fundamentals</a></li>
+            </ul>
+        </aside>
     </main>
 
-    <aside>
-        <h3>Quick Links</h3>
-        <ul>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-        </ul>
-    </aside>
-
     <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <p>&copy; 2024 My Blog</p>
     </footer>
 </body>
 </html>
 ```
+</details>
 
-### Exercise 2: Semantic HTML
-```html
-<header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+## Exercise 4: CSS Layout
+Create a responsive grid layout for a photo gallery. Include:
+- Grid layout
+- Flexbox for image containers
+- Media queries for different screen sizes
+- Image hover effects
 
-<main>
-    <article>
-        <h1>Welcome</h1>
-        <p>This is a paragraph.</p>
-    </article>
-    <aside>
-        <nav>
-            <ul>
-                <li><a href="#link1">Link 1</a></li>
-                <li><a href="#link2">Link 2</a></li>
-            </ul>
-        </nav>
-    </aside>
-</main>
-
-<footer>
-    <p>&copy; 2024</p>
-</footer>
-```
-
-### Exercise 3: CSS Selectors
 ```css
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-#main-header {
-    background-color: #f8f9fa;
-    padding: 1rem;
-}
-
-#main-header h1 {
-    color: #333;
-    margin: 0;
-}
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-}
-
-nav a {
-    color: #666;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #333;
-}
-
-/* Main content */
-main {
-    padding: 2rem 0;
-}
-
-.post {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.post h2 {
-    color: #333;
-    margin-top: 0;
-}
+/* Your CSS code here */
 ```
 
-### Exercise 4: Box Model
-```css
-.card {
-    width: 300px;
-    height: 200px;
-    padding: 20px;
-    margin: 10px;
-    border: 1px solid gray;
-    border-radius: 8px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-```
+<details>
+<summary>Solution</summary>
 
-### Exercise 5: Flexbox Layout
-```css
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f8f9fa;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.login-button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-```
-
-### Exercise 6: CSS Units
-```css
-:root {
-    font-size: 16px;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.heading {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.text {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.sidebar {
-    width: 25%;
-    padding: 1.5rem;
-}
-
-.hero {
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-```
-
-### Exercise 7: CSS Transitions
-```css
-/* Button hover effect */
-.button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Image scale on hover */
-.image {
-    transition: transform 0.3s ease;
-}
-
-.image:hover {
-    transform: scale(1.1);
-}
-
-/* Link color change */
-.link {
-    color: #666;
-    transition: color 0.3s ease;
-}
-
-.link:hover {
-    color: #333;
-}
-
-/* Accordion height change */
-.accordion {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
-
-.accordion.open {
-    max-height: 500px;
-}
-```
-
-### Exercise 8: Media Queries
-```css
-/* Base styles */
-.container {
-    display: flex;
-    gap: 2rem;
-}
-
-.sidebar {
-    width: 250px;
-}
-
-.main-content {
-    flex: 1;
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-    }
-    
-    .heading {
-        font-size: 1.5rem;
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
-    
-    .heading {
-        font-size: 1.25rem;
-    }
-    
-    .text {
-        font-size: 0.875rem;
-    }
-}
-```
-
-### Exercise 9: CSS Grid
 ```css
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
 .gallery-item {
-    aspect-ratio: 1;
+    position: relative;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
+    height: 250px;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Tablet */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
     }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
     .gallery {
         grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
     }
 }
 ```
+</details>
 
-### Exercise 10: Form Styling
+## Exercise 5: Form Styling
+Create a styled contact form with:
+- Input validation styles
+- Custom checkbox and radio buttons
+- Error states
+- Success states
+- Responsive design
+
 ```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
-.form-label {
+label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.form-input {
+input[type="text"],
+input[type="email"],
+textarea {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
+    padding: 10px;
+    border: 2px solid #ddd;
     border-radius: 4px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s;
 }
 
-.form-input:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4CAF50;
     outline: none;
-    border-color: #007bff;
 }
 
-.form-input.error {
-    border-color: #dc3545;
+input[type="text"].error,
+input[type="email"].error,
+textarea.error {
+    border-color: #ff0000;
 }
 
 .error-message {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+    color: #ff0000;
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
-.submit-button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
+/* Custom Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
     color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Success State */
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 10px;
+    }
+}
+```
+</details>
+
+## Exercise 6: CSS Variables and Theming
+Create a themeable component using CSS variables. Include:
+- Light and dark themes
+- Color schemes
+- Typography settings
+- Spacing variables
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+:root {
+    /* Colors */
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --text-color: #333;
+    --background-color: #fff;
+    --border-color: #ddd;
+    
+    /* Typography */
+    --font-family: Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #66bb6a;
+    --secondary-color: #42a5f5;
+    --text-color: #fff;
+    --background-color: #333;
+    --border-color: #555;
+}
+
+/* Component Styles */
+.card {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.card h2 {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.card p {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+```
+</details>
+
+## Exercise 7: CSS Animations
+Create a set of reusable animations for:
+- Loading spinners
+- Button hover effects
+- Page transitions
+- Notification animations
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+/* Loading Spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Button Hover Effect */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.submit-button:hover {
-    background-color: #0056b3;
+.pulse-button:hover {
+    animation: pulse 1s infinite;
 }
 
-@media (max-width: 768px) {
-    .form-group {
-        margin-bottom: 0.75rem;
+/* Page Transition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-transition {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Notification Animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
-```
 
-### Exercise 11: Challenge: Card Component
-```css
-.card {
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Hover Card Effect */
+@keyframes lift {
+    from {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    to {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+}
+
+.hover-card {
     background-color: white;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.card-header {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.card-title {
-    margin: 0;
-    font-size: 1.25rem;
-}
-
-.card-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.card-content {
-    padding: 1rem;
-}
-
-.card-footer {
-    padding: 1rem;
-    border-top: 1px solid #eee;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-}
-
-/* Variants */
-.card.primary {
-    border-top: 4px solid #007bff;
-}
-
-.card.secondary {
-    border-top: 4px solid #6c757d;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .card-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .card-footer {
-        flex-direction: column;
-    }
-    
-    .card-footer button {
-        width: 100%;
-    }
+.hover-card:hover {
+    animation: lift 0.3s forwards;
 }
 ```
+</details>
 
-### Exercise 12: Challenge: Navigation Menu
+## Exercise 8: Responsive Navigation
+Create a responsive navigation menu that:
+- Collapses into a hamburger menu on mobile
+- Has smooth transitions
+- Includes dropdown menus
+- Is accessible
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
 ```css
 .nav {
-    background-color: #f8f9fa;
+    background-color: #333;
     padding: 1rem;
 }
 
@@ -639,173 +669,371 @@ main {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 1rem;
 }
 
 .nav-item {
     position: relative;
+    margin-right: 1rem;
 }
 
 .nav-link {
-    color: #333;
+    color: white;
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     display: block;
+    transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-    color: #007bff;
+    background-color: #555;
 }
 
-/* Dropdown */
+/* Dropdown Menu */
 .dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: #333;
     min-width: 200px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-}
-
-.nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Mobile menu */
-.menu-toggle {
     display: none;
+    z-index: 1;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-list {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: white;
-        padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .nav-list.open {
-        display: flex;
-    }
-    
-    .dropdown {
-        position: static;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-    }
-    
-    .nav-item.open .dropdown {
-        display: block;
-    }
-}
-```
-
-### Exercise 13: Challenge: Modal Dialog
-```css
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
-.modal-backdrop.open {
-    opacity: 1;
-    visibility: visible;
+.dropdown-item {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
 }
 
-.modal {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 500px;
-    width: 90%;
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
+.dropdown-item:hover {
+    background-color: #555;
 }
 
-.modal-backdrop.open .modal {
-    transform: translateY(0);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.modal-title {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.modal-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+/* Hamburger Menu */
+.hamburger {
+    display: none;
     cursor: pointer;
     padding: 0.5rem;
 }
 
-.modal-content {
-    margin-bottom: 1.5rem;
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
 }
 
-.modal-footer {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-item {
+        margin: 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background-color: #444;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Accessibility */
+.nav-link:focus,
+.dropdown-item:focus {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+```
+</details>
+
+## Exercise 9: CSS Grid Layout
+Create a responsive grid layout for a dashboard with:
+- Sidebar navigation
+- Main content area
+- Widget grid
+- Responsive breakpoints
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+.dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-column: 1 / -1;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
     display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Animation keyframes */
-@keyframes modalIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+/* Sidebar */
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    grid-row: 2 / -1;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-link:hover {
+    background-color: #e0e0e0;
+}
+
+/* Main Content */
+.main-content {
+    padding: 1rem;
+    background-color: #fff;
+}
+
+/* Widget Grid */
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.widget {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .sidebar {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .widget-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-@keyframes modalOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
+/* Widget Sizes */
+.widget-large {
+    grid-column: span 2;
+}
+
+.widget-tall {
+    grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+    .widget-large,
+    .widget-tall {
+        grid-column: auto;
+        grid-row: auto;
     }
 }
 ```
+</details>
 
-</details> 
+## Exercise 10: CSS Custom Properties
+Create a theme system using CSS custom properties that:
+- Supports multiple color schemes
+- Allows for dynamic theme switching
+- Includes typography settings
+- Has spacing variables
+
+```css
+/* Your CSS code here */
+```
+
+<details>
+<summary>Solution</summary>
+
+```css
+/* Theme Variables */
+:root {
+    /* Light Theme (Default) */
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --background-color: #ffffff;
+    --surface-color: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #dddddd;
+    
+    /* Typography */
+    --font-family: 'Segoe UI', system-ui, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --line-height: 1.5;
+    
+    /* Spacing */
+    --spacing-unit: 8px;
+    --spacing-xs: calc(var(--spacing-unit) * 1);
+    --spacing-sm: calc(var(--spacing-unit) * 2);
+    --spacing-md: calc(var(--spacing-unit) * 3);
+    --spacing-lg: calc(var(--spacing-unit) * 4);
+    --spacing-xl: calc(var(--spacing-unit) * 5);
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #66bb6a;
+    --secondary-color: #42a5f5;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #333333;
+}
+
+/* Component Styles */
+.card {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+
+.text {
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Theme Switch Button */
+.theme-switch {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+```
+</details>
+
+## Next Steps
+After completing these exercises, you should be comfortable with:
+1. Creating semantic HTML structures
+2. Styling elements with CSS
+3. Building responsive layouts
+4. Working with CSS variables and themes
+5. Creating animations and transitions
+6. Implementing responsive navigation
+7. Using CSS Grid and Flexbox
+8. Building accessible components
+
+[Continue to Selecting Elements →](../guides/javascript/selecting-elements.md) 
