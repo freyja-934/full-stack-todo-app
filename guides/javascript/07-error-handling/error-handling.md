@@ -236,6 +236,94 @@ class TodoService {
       throw error;
     }
   }
+
+  // Additional todo app examples
+  async deleteTodo(id) {
+    try {
+      const response = await fetch(`/api/todos/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error('Todo not found');
+        }
+        throw new Error(`Failed to delete todo: ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error('Error deleting todo:', error.message);
+      throw error;
+    }
+  }
+
+  async getTodos(filter = {}) {
+    try {
+      const queryParams = new URLSearchParams(filter);
+      const response = await fetch(`/api/todos?${queryParams}`);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch todos: ${response.statusText}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching todos:', error.message);
+      throw error;
+    }
+  }
+
+  async toggleTodoStatus(id) {
+    try {
+      const todo = await this.getTodo(id);
+      if (!todo) {
+        throw new Error('Todo not found');
+      }
+
+      return await this.updateTodo(id, {
+        completed: !todo.completed
+      });
+    } catch (error) {
+      console.error('Error toggling todo status:', error.message);
+      throw error;
+    }
+  }
+}
+
+// Example usage with error handling
+async function handleTodoOperations() {
+  const todoService = new TodoService();
+
+  try {
+    // Add a new todo
+    const newTodo = await todoService.addTodo({
+      title: "Learn Error Handling",
+      completed: false
+    });
+    console.log('Todo added:', newTodo);
+
+    // Update the todo
+    const updatedTodo = await todoService.updateTodo(newTodo.id, {
+      completed: true
+    });
+    console.log('Todo updated:', updatedTodo);
+
+    // Toggle todo status
+    const toggledTodo = await todoService.toggleTodoStatus(newTodo.id);
+    console.log('Todo status toggled:', toggledTodo);
+
+    // Get all completed todos
+    const completedTodos = await todoService.getTodos({ completed: true });
+    console.log('Completed todos:', completedTodos);
+
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      console.error('Validation failed:', error.message);
+    } else if (error instanceof TypeError) {
+      console.error('Network error:', error.message);
+    } else {
+      console.error('Unexpected error:', error);
+    }
+  }
 }
 ```
 
